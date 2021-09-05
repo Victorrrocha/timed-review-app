@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const port = 3000
@@ -5,8 +6,7 @@ const mongoose = require('mongoose')
 const Review = require('./models/Review')
 
 //Connecting to Database
-const MongoURI = "mongodb+srv://vrochadev:e3DyptFJUOwu7zsB@timedreviewapp.kmrzw.mongodb.net/TimedReviewApp?retryWrites=true&w=majority"
-mongoose.connect(MongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.DBURI, {useNewUrlParser: true, useUnifiedTopology: true})
 
 app.listen(port, () => {
     console.log(`Started listening on port ${port}`)
