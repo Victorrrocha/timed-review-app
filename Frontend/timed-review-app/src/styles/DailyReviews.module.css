@@ -1,0 +1,23 @@
+.strip {
+    background-color: #D1CDC7;
+    text-align: center;
+}
+
+.strip p {
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.5em 0;
+}
+
+.card_container {
+    max-width: fit-content;
+    width: 90%;
+    margin: 0 auto;
+    /* background-color: aqua; */
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+    justify-items: center;
+    margin-top: 1.5em;
+}

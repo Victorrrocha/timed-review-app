@@ -1,0 +1,35 @@
+.card {
+    max-width: 300px;
+    width: 100%;
+    height: 270px;
+    padding: 1em;
+    box-shadow: 0px 4px 14px 1px rgba(135,135,135,0.98);
+    transition: transform 100ms ease-in;
+}
+
+.card:hover{
+    /* animation: focused 100ms ease-in forwards; */
+    transform: scale(1.02);
+}
+
+/* @keyframes focused {
+    100% {
+        transform: scale(1.02);
+    }
+} */
+
+.yellow {
+    background-color: #fff69b;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 0.2em;
+}
+
+.field_subject{
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 0.5em;
+}

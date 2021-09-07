@@ -1,0 +1,14 @@
+.nav_items{
+    display: flex;
+    align-items: center;
+}
+
+.nav_items li{
+    margin-left: 2em;
+    color: #7D7D7D;
+    font-size: 1.2rem;
+}
+
+ul {
+    list-style-type: none;
+}
