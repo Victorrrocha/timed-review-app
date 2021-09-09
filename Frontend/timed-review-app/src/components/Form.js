@@ -1,19 +1,22 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import styles from '../styles/Form.module.css'
+import { useHistory } from 'react-router-dom'
+
+//Quill
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 export default function Form() {
 
-    const [title, setTitle] = useState("")
-    const [body, setBody] = useState("")
-    const [field, setField] = useState("")
-    const [subject, setSubject] = useState("")
-    
+    const [title, setTitle] = useState('')
+    const [field, setField] = useState('')
+    const [body, setBody] = useState('');
+    const [subject, setSubject] = useState('')
+    const history = useHistory()
+
     const HandleTitle = (e) => {
         setTitle(e.target.value)
-    }
-
-    const HandleBody = (e) => {
-        setBody(e.target.value)
     }
 
     const HandleField = (e) => {
@@ -41,30 +44,57 @@ export default function Form() {
         console.log(Review)
 
         axios.post('http://localhost:5000/review/', Review)
-        .then(result => console.log(result))
+        .then((result) => {
+            console.log(result)
+            history.push('/')
+        })
         .catch(err => console.log(err))
     }
 
+    const HandleCancel = () => {
+        history.push('/')
+    }
+
     return (
-  
-        <form action="title">
-            <label>Title
-                <input type="text" id="title" value={title} onChange={(e) => HandleTitle(e)}/>
-            </label>
+        <div className="full-width">
+            <form className={styles.form} action="title">
+                <label name="Title">
+                    <input 
+                        className={`${styles.input} ${styles.title}`} 
+                        placeholder="Title" 
+                        type="text" id="title" 
+                        value={title} onChange={(e) => HandleTitle(e)}/>
+                </label>
 
-            <label>Body
-            <input type="text" id="body" value={body} onChange={(e) => HandleBody(e)}/>
-            </label>
+                <label name="Body">
 
-            <label>Field
-            <input type="text" id="field" value={field} onChange={(e) => HandleField(e)}/>
-            </label>
+                    <div style={{marginBottom: '1em'}}>
+                        <ReactQuill style={{minHeight: '100%'}} theme="snow" value={body} onChange={setBody} className="quill-editor"/>
+                    </div>
 
-            <label>Subject
-            <input type="text" id="subject" value={subject} onChange={(e) => HandleSubject(e)}/>
-            </label>
+                </label>
 
-            <button onClick={(e) => HandleSubmit(e)}>Submit</button>
-        </form>
+                <label name="Field">
+                    <input 
+                        className={`${styles.input} ${styles.field}`} 
+                        placeholder="Field"
+                        type="text" id="field" 
+                        value={field} onChange={(e) => HandleField(e)}/>
+                </label>
+
+                <label name="Subject">
+                    <input 
+                        className={`${styles.input} ${styles.subject}`} 
+                        placeholder="Subject"
+                        type="text" id="subject" 
+                        value={subject} onChange={(e) => HandleSubject(e)}/>
+                </label>
+
+                <div className={styles.btn_container}>
+                    <button className="btn" onClick={() => HandleCancel()}>Cancel</button>
+                    <button className="btn" onClick={(e) => HandleSubmit(e)}>Submit</button>
+                </div>
+            </form>
+        </div>
     )
 }

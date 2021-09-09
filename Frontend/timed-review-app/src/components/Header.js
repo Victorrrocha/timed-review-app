@@ -1,6 +1,7 @@
 import React from 'react'
 import Logo from './Logo'
 import styles from '../styles/Header.module.css'
+import {Link} from 'react-router-dom'
 
 export default function Header() {
     return (
@@ -9,8 +10,8 @@ export default function Header() {
 
             <nav>
                 <ul className={styles.nav_items}>
-                    <li>Home</li>
-                    <li>New</li>
+                    <li><Link to="/" >Home</Link></li>
+                    <li><Link to="/new" >New</Link></li>
                     <li>Notes</li>
                     <li>Logout</li>
                 </ul>

@@ -11,7 +11,7 @@ const ReviewSchema = mongoose.Schema({
         required: true
     },
     body : {
-        type: String
+        type: Object
     },
     field: {
         type: String

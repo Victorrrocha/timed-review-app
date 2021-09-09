@@ -41,11 +41,21 @@ app.post('/review', (req, res) => {
 
     new_review.save()
     .then((result) => {
-        res.send(result)
+        console.log(result)
     })
     .catch((err) => {
         console.log(err)
     })
+})
+
+//Go to review page
+app.get('/review/:id', (req,res) => {
+    const id = req.params.id
+    const review = Review.findById({_id: id})
+    .then((result) => {
+        res.send(result)
+    })
+    .catch((err) => console.log(err))
 })
 
 //Edit a review

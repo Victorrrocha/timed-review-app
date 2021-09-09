@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import styles from '../styles/DailyReviews.module.css'
 import axios from 'axios'
 import Card from '../components/Card'
@@ -24,11 +25,14 @@ export default function DailyReviews() {
             <div className={styles.card_container}>
                 {
                     reviews.map(review => {
-                        return (<Card key={review._id} title={review.title} 
-                            body={review.body} 
-                            field={review.field}
-                            subject={review.subject} />
-                            )
+                        return (
+                        <Link to={`/review/${review._id}`} key={review._id} >
+                            <Card  title={review.title} 
+                                //body={review.body} 
+                                field={review.field}
+                                subject={review.subject} />
+                        </Link>
+                        )
                     })
                 }
             </div>

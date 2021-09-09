@@ -1,0 +1,48 @@
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    width: 100%;
+    border: none;
+    font-size: 1rem;
+    margin-bottom: .5em;
+    padding: .5rem 1rem;
+}
+
+input:focus {
+   outline: 1px solid  #D1CDC7;
+}
+
+.title {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.field {
+    font-weight: bold;
+}
+
+.subject {
+    font-weight: bold;
+}
+
+.textarea{
+    outline: 1px solid  #D1CDC7;
+    min-height: 50vh
+}
+
+.field_and_subject{
+    display: flex;
+    align-items: center;
+}
+
+
+.btn_container{
+    margin: 0 auto;
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}

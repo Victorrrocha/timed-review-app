@@ -8,6 +8,11 @@ body {
   background-color: #F8F8F8;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  width: 100%
+}
 
 /* typography */
 
@@ -62,4 +67,46 @@ body {
 
 .header {
   margin: 2em auto;
+}
+
+.btn {
+  width: fit-content;
+  padding: .5em 1em;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.3em;
+  background-color: #F8F8F8;
+  transition: background-color 200ms ease-in-out;
+  color: #838383;
+}
+
+.btn:hover{
+  background-color: #ececec;
+}
+
+.bg_success {
+  background-color: #bcdfc9;
+}
+
+.bg_danger {
+  background-color: #F08030;
+}
+
+.quill-container{
+  margin-bottom: 1em;
+}
+
+.quill-editor{
+  width: 100%;
+  background-color: white;
+}
+
+.save-delete-container{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2em;
+}
+
+.margin-left{
+  margin-left: 1em;
 }
